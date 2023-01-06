@@ -1,20 +1,20 @@
 #!/bin/bash
 
-export VERSION=0.18.1
+export VERSION=0.20.0
 export ARCH=arm64
 
 useradd -M -r -s /bin/false alertmanager
 
-wget https://github.com/prometheus/alertmanager/releases/download/v0.20.0/alertmanager-0.20.0.linux-amd64.tar.gz
-tar xvfz alertmanager-0.20.0.linux-amd64.tar.gz
+wget https://github.com/prometheus/alertmanager/releases/download/v$VERSION/alertmanager-$VERSION.linux-$ARCH.tar.gz
+tar xvfz alertmanager-$VERSION.linux-$ARCH.tar.gz
 
-cp alertmanager-0.20.0.linux-amd64/{alertmanager,amtool} /usr/local/bin/
+cp alertmanager-$VERSION.linux-$ARCH/{alertmanager,amtool} /usr/local/bin/
 chown alertmanager:alertmanager /usr/local/bin/{alertmanager,amtool}
 mkdir -p /etc/alertmanager
-cp alertmanager-0.20.0.linux-amd64/alertmanager.yml /etc/alertmanager
+cp alertmanager-$VERSION.linux-$ARCH/alertmanager.yml /etc/alertmanager
 chown -R alertmanager:alertmanager /etc/alertmanager
 mkdir -p /var/lib/alertmanager
-chown alertmanager:alertmanager /var/lib/alertmanage
+chown alertmanager:alertmanager /var/lib/alertmanager
 mkdir -p /etc/amtool
 
 cat > /etc/amtool/config.yml <<EOF
