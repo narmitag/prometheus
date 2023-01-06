@@ -2,28 +2,22 @@
 
 
 export VERSION=2.16.0
-export ARCH=$(uname -m)
+export ARCH=arm64
 
 useradd -M -r -s /bin/false prometheus
-
 mkdir /etc/prometheus /var/lib/prometheus
 
 wget https://github.com/prometheus/prometheus/releases/download/v$VERSION/prometheus-$VERSION.linux-$ARCH.tar.gz
-
-tar xzf prometheus-$VERSION.linux-$ARCH.tar.gz prometheus-$VERSION.linux$ARCH/
+tar xzf prometheus-$VERSION.linux-$ARCH.tar.gz prometheus-$VERSION.linux-$ARCH/
 
 cp prometheus-$VERSION.linux-$ARCH/{prometheus,promtool} /usr/local/bin/
-
 chown prometheus:prometheus /usr/local/bin/{prometheus,promtool}
 
 cp -r prometheus-$VERSION.linux-$ARCH/{consoles,console_libraries} /etc/prometheus/
-
 cp prometheus-$VERSION.linux-$ARCH/prometheus.yml /etc/prometheus/prometheus.yml
 
 chown -R prometheus:prometheus /etc/prometheus
-
 chown prometheus:prometheus /var/lib/prometheus
-
 
 
 cat > /etc/systemd/system/prometheus.service <<EOF

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export VERSION=0.18.1
-export ARCH=$(uname -m)
+export ARCH=arm64
 
 useradd -M -r -s /bin/false node_exporter
 
