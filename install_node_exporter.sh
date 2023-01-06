@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export VERSION=0.18.1
+export VERSION=1.5.0
 export ARCH=arm64
 
 useradd -M -r -s /bin/false node_exporter

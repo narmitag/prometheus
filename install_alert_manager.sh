@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export VERSION=0.20.0
+export VERSION=0.25.0
 export ARCH=arm64
 
 useradd -M -r -s /bin/false alertmanager

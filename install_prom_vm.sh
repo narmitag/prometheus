@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-export VERSION=2.16.0
+export VERSION=2.41.0
 export ARCH=arm64
 
 useradd -M -r -s /bin/false prometheus
